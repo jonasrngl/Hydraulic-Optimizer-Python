@@ -2,8 +2,8 @@ import time
 import Globals
 
 
-seedRounds = 30
-populationRounds = 3
+seedRounds = 1
+populationRounds = 2
 mutationRateRounds = 3
 crossoverRateRounds = 3
 
@@ -17,7 +17,7 @@ def SeedLoop(NextFunction, *args, **kwargs):
             seed = int(content[5])
         else:
             seed = int(time.time())
-        NextFunction(*args, **kwargs, seed = seed, seedRound = i)
+        NextFunction(*args, **kwargs, seed = 1728163178, seedRound = i)
 
 def PopulationLoop(NextFunction, *args, **kwargs):
     global populationRounds

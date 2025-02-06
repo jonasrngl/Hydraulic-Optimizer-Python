@@ -10,9 +10,9 @@ def initialize():
     global generations
     global stop_criteria
 
-    AVAILABLE_DIAMETERS = 6
+    AVAILABLE_DIAMETERS = 14
 
-    NUMBER_OF_PIPES = 34
+    NUMBER_OF_PIPES = 8
     generations = 1000
     stop_criteria = ('n_gen', generations)
 
