@@ -18,7 +18,7 @@ def ObjectiveFunction(splitDpInput):
     Hmin: float = 30.0
 
     # Loading Network
-    d = epanet('./app/EPANET/Hanoi.inp', loadfile=True, verbose=False, multithreading=False)
+    d = epanet('./app/EPANET/Alperovits_Shamir.inp', loadfile=True, verbose=False, multithreading=False)
 
     d.openHydraulicAnalysis()
     d.initializeHydraulicAnalysis(0)
@@ -31,7 +31,7 @@ def ObjectiveFunction(splitDpInput):
     diameter = []
     pipe_cost = []
 
-    finput = open('./app/Tabela_Custos_Hanoi.txt', 'rt')
+    finput = open('./app/Tabela_Custos.txt', 'rt')
 
     number_diameters = int(finput.readline().split()[0])
 
@@ -106,8 +106,6 @@ def ObjectiveFunction(splitDpInput):
     d.unload()
 
     del d
-
-    gc.collect()
 
     print(f"{total_cost} {(-1)*sum_RI}")
 #--------------------------------------------------

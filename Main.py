@@ -19,8 +19,8 @@ import csv
 import os
 import gc
 
-allOfThem: bool = True
-selectedAlgorithm: str = "NSGA3"
+allOfThem: bool = False
+selectedAlgorithm: str = "NSGA2"
 
 counter: bool = True
 
@@ -247,9 +247,25 @@ if __name__ == '__main__':
 
     Loops.SeedLoop(Loops.PopulationLoop, Loops.MutationRateLoop, Loops.CrossoverRateLoop, ExecuteAlgorithms)
 
-    end = (time.time() - start)
-    endmin = end // 60
-    print("Time: ", endmin, " minutes and ", end - (endmin * 60), " seconds")
+    endsec = (time.time() - start)
+        
+    f = open("endtime", 'w')
+
+    if endsec > 60:
+        endmin = endsec // 60
+        if endmin > 60:
+            endhours = endmin // 60
+            text = f"Time:{endhours} hours, {endmin - (endhours * 60)} minutes and {endsec - (endmin * 60)} seconds\n"
+        else:
+            text = f"Time: {endmin} minutes and {endsec - (endmin * 60)} seconds\n"
+    else:
+        text = f"Time:{endsec} seconds\n"
+
+    f.write(text)
+    print(text)
+
+    f.close()
+    
     
     if os.path.exists(".savestate"):
         os.remove(".savestate")

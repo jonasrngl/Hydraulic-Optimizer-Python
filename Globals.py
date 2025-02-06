@@ -21,9 +21,9 @@ def initialize():
     global generations
     global stop_criteria
 
-    AVAILABLE_DIAMETERS = 6
+    AVAILABLE_DIAMETERS = 14
 
-    NUMBER_OF_PIPES = 34
+    NUMBER_OF_PIPES = 8
     generations = 1000
     stop_criteria = ('n_gen', generations)
 
@@ -37,7 +37,7 @@ def initialize():
     dockers = {}
     availablePorts = []
     currentPort = 0
-    numberOfThreads = 50
+    numberOfThreads = 4
     for i in range(numberOfThreads * 2):
         availablePorts.append(8000 + i)
 
